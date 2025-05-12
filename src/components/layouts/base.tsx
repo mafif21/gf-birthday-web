@@ -2,6 +2,8 @@
 
 import { HTMLAttributes, ReactNode } from "react";
 import { Container } from "../container";
+import { Header } from "./header";
+import { Footer } from "../footer";
 
 interface LayoutProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
@@ -21,9 +23,13 @@ export const Layout = ({
 }: LayoutProps) => {
   return (
     <div {...props}>
+      <Header />
       <main className={`my-20 ${classname || ""}`}>
         <Container variant={containerVariant}>{children}</Container>
       </main>
+      <Container variant={containerVariant}>
+        <Footer />
+      </Container>
     </div>
   );
 };
