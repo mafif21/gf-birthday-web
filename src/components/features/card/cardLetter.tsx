@@ -10,13 +10,13 @@ interface cardLetterProps {
 export const CardLetter = ({ categories, message }: cardLetterProps) => {
   return (
     <div>
-      <Card>
+      <Card className="h-full">
         <CardContent>
           <p>{message}</p>
         </CardContent>
 
         <CardFooter>
-          <div className="flex gap-1">
+          <div className="flex gap-1 flex-wrap">
             {categories.map((categoryId, index) => {
               const category = Categories.find(
                 (c) => c.idCategory === categoryId
@@ -32,7 +32,7 @@ export const CardLetter = ({ categories, message }: cardLetterProps) => {
                     borderWidth: "1px",
                     borderStyle: "solid",
                   }}
-                  className="text-xs px-2 py-1 rounded text-slate-700"
+                  className="text-xs py-1 rounded text-slate-700"
                 >
                   {category.name}
                 </Badge>

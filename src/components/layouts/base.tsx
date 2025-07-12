@@ -24,7 +24,7 @@ export const Layout = ({
   return (
     <div {...props}>
       <Header />
-      <main className={`my-20 ${classname || ""}`}>
+      <main className={`my-20 overflow-hidden ${classname || ""} `}>
         <Container variant={containerVariant}>{children}</Container>
       </main>
       <Container variant={containerVariant}>

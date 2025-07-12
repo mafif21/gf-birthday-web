@@ -1,19 +1,37 @@
+"use client";
 import { Carousels } from "@/data/carousel";
 import { Separator } from "../ui/separator";
 import {
   Carousel,
+  CarouselApi,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { useEffect, useState } from "react";
 
 export const Hero = () => {
+  const [api, setApi] = useState<CarouselApi>();
+  useEffect(() => {
+    if (!api) return;
+
+    const intervalId = setInterval(() => {
+      api.scrollNext();
+    }, 3000);
+
+    return () => clearInterval(intervalId);
+  }, [api]);
+
   return (
-    <div className="scroll-mt-24">
+    <div className="scroll-mt-24 px-4">
       <div className="flex items-center flex-col gap-4">
         <div>
-          <Carousel className="w-2xl">
+          <Carousel
+            className="lg:w-2xl [&_.carousel-button]:hidden [&>button]:hidden"
+            setApi={setApi}
+            opts={{ align: "start", loop: true }}
+          >
             <CarouselContent>
               {Carousels.map((v, index) => (
                 <CarouselItem key={index}>
@@ -33,9 +51,11 @@ export const Hero = () => {
         </div>
 
         <div className="flex flex-col items-center">
-          <h1 className="text-2xl mb-4 font-semibold">Dear Ratu Andri</h1>
-          <div className="w-md text-center">
-            <p>
+          <h1 className="text-xl lg:text-2xl mb-4 font-semibold">
+            Dear Ratu Andri
+          </h1>
+          <div className="text-center">
+            <p className="text-sm">
               I truly treasure you. I love you so much and these are times when
               I see how beautiful you are. 💗
             </p>

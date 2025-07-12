@@ -16,7 +16,6 @@ export const Letter = () => {
     ? Letters.filter((letter) => letter.categories.includes(selectedCategory))
     : Letters.slice(0, 9);
 
-  console.log(filteredLetters);
   return (
     <div className="my-10 scroll-mt-10" id="letters">
       <div className="flex flex-col items-center mb-10">
@@ -26,7 +25,7 @@ export const Letter = () => {
         </div>
       </div>
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 justify-center">
         {Categories.map((value) => {
           const isSelected = value.idCategory == selectedCategory;
           return (
@@ -51,7 +50,7 @@ export const Letter = () => {
         })}
       </div>
 
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-2 lg:grid-cols-3 gap-3">
         {filteredLetters.map((value, index) => (
           <CardLetter
             categories={value.categories}

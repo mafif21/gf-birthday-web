@@ -2,13 +2,14 @@ import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import React from "react";
 
-const containerVariants = cva("mx-auto", {
+const containerVariants = cva("", {
   variants: {
     variant: {
       fullMobileConstrainedPadded: "max-w-7xl sm:px-6 lg:px-8",
-      constrainedPadded: "max-w-7xl px-4 sm:px-6 lg:px-8",
-      fullMobileBreakpointPadded: "container mx-auto sm:px-6 lg:px-8",
-      breakpointPadded: "container mx-auto px-4 sm:px-6 lg:px-8",
+      constrainedPadded: "max-w-7xl lg:max-w-full px-4 sm:px-6 lg:px-90",
+      fullMobileBreakpointPadded:
+        "w-full px-4 max-w-xl sm:px-6 lg:max-w-7xl lg:mx-auto",
+      breakpointPadded: " mx-auto px-4 sm:px-6 lg:px-8",
       narrowConstrainedPadded: "max-w-7xl px-4 sm:px-6 lg:px-8",
     },
   },
