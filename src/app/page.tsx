@@ -1,3 +1,4 @@
+import BirthdayMusicPlayer from "@/components/features/card/musicPlayerCard";
 import { Layout } from "@/components/layouts/base";
 import { Hero } from "@/components/sections/hero";
 import { Letter } from "@/components/sections/letter";
@@ -11,6 +12,9 @@ export default function Home() {
       <Message />
       <Letter />
       <Moment />
+      <div className="md:hidden">
+        <BirthdayMusicPlayer />
+      </div>
     </Layout>
   );
 }
