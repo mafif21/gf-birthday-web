@@ -1,10 +1,8 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-
 interface MediaItem {
-  type: "image" | "video";
   src: string;
+  type: "image" | "video";
 }
 
 interface GalleryProps {
@@ -12,49 +10,46 @@ interface GalleryProps {
 }
 
 export const Gallery = ({ items }: GalleryProps) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    let animationFrame: number;
-
-    const scroll = () => {
-      if (container.scrollTop >= container.scrollHeight / 2) {
-        const currentScroll = container.scrollTop;
-        container.style.scrollBehavior = "auto";
-
-        container.scrollTop = 0;
-        container.style.scrollBehavior = "smooth";
-
-        container.scrollTop = currentScroll % (container.scrollHeight / 2);
-      } else {
-        container.scrollTop += 0.5;
-      }
-
-      animationFrame = requestAnimationFrame(scroll);
-    };
-
-    animationFrame = requestAnimationFrame(scroll);
-
-    return () => cancelAnimationFrame(animationFrame);
-  }, []);
-
   return (
-    <div
-      ref={containerRef}
-      className="max-h-[600px] overflow-y-hidden rounded-lg"
-    >
-      <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
-        {[...items, ...items].map((item, i) => (
-          <img
-            key={i}
-            src={item.src}
-            className="w-full rounded-lg break-inside-avoid"
-          />
-        ))}
+    <div className="relative h-[600px] overflow-hidden">
+      <div className="absolute animate-scrollUp w-full">
+        <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
+          {[...items, ...items].map((item, index) => (
+            <div key={index} className="break-inside-avoid">
+              {item.type === "image" ? (
+                <img
+                  src={item.src}
+                  className="w-full rounded-lg"
+                  alt={`media-${index}`}
+                />
+              ) : (
+                <video
+                  src={item.src}
+                  className="w-full rounded-lg"
+                  autoPlay
+                  muted
+                  loop
+                />
+              )}
+            </div>
+          ))}
+        </div>
       </div>
+
+      <style jsx>{`
+        @keyframes scrollUp {
+          0% {
+            transform: translateY(0%);
+          }
+          100% {
+            transform: translateY(-50%);
+          }
+        }
+
+        .animate-scrollUp {
+          animation: scrollUp 30s linear infinite;
+        }
+      `}</style>
     </div>
   );
 };
