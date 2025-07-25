@@ -271,7 +271,7 @@ const BirthdayMusicPlayer = () => {
       </div>
 
       {/* Mobile Version - Floating Player */}
-      <div className="md:hidden fixed top-107 right-4 z-50">
+      <div className="md:hidden fixed top-104 right-4 z-50">
         {/* Floating Container */}
         <div
           className={`bg-white rounded-2xl shadow-2xl border-2 border-pink-200 overflow-hidden transition-all duration-300 ${
