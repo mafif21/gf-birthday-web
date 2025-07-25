@@ -30,23 +30,7 @@ export const mediaItems: MediaItem[] = [
   },
   {
     type: "image",
-    src: "/gallery/8.png",
-  },
-  {
-    type: "image",
-    src: "/gallery/9.jpg",
-  },
-  {
-    type: "image",
-    src: "/gallery/10.jpg",
-  },
-  {
-    type: "image",
-    src: "/gallery/14.jpg",
-  },
-  {
-    type: "image",
-    src: "/gallery/16.jpg",
+    src: "/gallery/16.png",
   },
   {
     type: "image",
@@ -63,9 +47,5 @@ export const mediaItems: MediaItem[] = [
   {
     type: "image",
     src: "/gallery/20.jpg",
-  },
-  {
-    type: "image",
-    src: "/gallery/21.jpg",
   },
 ];
