@@ -6,46 +6,46 @@ type MediaItem = {
 export const mediaItems: MediaItem[] = [
   {
     type: "image",
-    src: "/gallery/1.jpg",
+    src: "/gallery/1.webp",
   },
   {
     type: "image",
-    src: "/gallery/3.jpg",
+    src: "/gallery/3.webp",
   },
   {
     type: "image",
-    src: "/gallery/4.jpg",
+    src: "/gallery/4.webp",
   },
   {
     type: "image",
-    src: "/gallery/5.jpg",
+    src: "/gallery/5.webp",
   },
   {
     type: "image",
-    src: "/gallery/6.jpg",
+    src: "/gallery/6.webp",
   },
   {
     type: "image",
-    src: "/gallery/7.jpg",
+    src: "/gallery/7.webp",
   },
   {
     type: "image",
-    src: "/gallery/16.png",
+    src: "/gallery/16.webp",
   },
   {
     type: "image",
-    src: "/gallery/17.jpg",
+    src: "/gallery/17.webp",
   },
   {
     type: "image",
-    src: "/gallery/18.jpg",
+    src: "/gallery/18.webp",
   },
   {
     type: "image",
-    src: "/gallery/19.jpg",
+    src: "/gallery/19.webp",
   },
   {
     type: "image",
-    src: "/gallery/20.jpg",
+    src: "/gallery/20.webp",
   },
 ];
